@@ -38,14 +38,14 @@ class Reducer(object):
     def __init__(self):
         return
 
-    def get_key(self, inl):
+    def _get_key(self, inl):
         # extract the key from one data line
         return inl.rstrip('\r\n').split('\t')[0]
 
     def run(self):
         self._setup()
         stdin_strip = imap(lambda l: l.rstrip('\r\n'), sys.stdin)
-        for key, kvalues in groupby(stdin_strip, self.get_key):
+        for key, kvalues in groupby(stdin_strip, self._get_key):
             self._reduce(key, kvalues)
         self._cleanup()
 

@@ -1,6 +1,11 @@
+#!/usr/bin/env python
+
 import sys
 import pymr
 
+
+class MyMapper(pymr.Mapper):
+    pass
 
 class MyReducer(pymr.Reducer):
     def __init__(self):
@@ -24,4 +29,8 @@ class MyReducer(pymr.Reducer):
         # @override
         print self.all_cnt
 
-MyReducer().run()
+if __name__ == '__main__':
+    if sys.argv[1] == 'm':
+        MyMapper().run()
+    if sys.argv[1] == 'r':
+        MyReducer().run()
