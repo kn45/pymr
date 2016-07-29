@@ -36,23 +36,29 @@ class Reducer(object):
     _cleanup
     """
     def __init__(self):
-        return
+        self.delim = '\t'
+        self.key_fields = 1
 
-    def _get_key(self, inl):
-        # extract the key from one data line
-        return inl.rstrip('\r\n').split('\t')[0]
+    def _get_kv(self, tar):
+        def __get_kv(inl):
+            fields = inl.split(self.delim)
+            return (self.delim.join(fields[:self.key_fields]),
+                    self.delim.join(fields[self.key_fields:]))[tar]
+        return __get_kv
 
     def run(self):
         self._setup()
         stdin_strip = imap(lambda l: l.rstrip('\r\n'), sys.stdin)
-        for key, kvalues in groupby(stdin_strip, self._get_key):
-            self._reduce(key, kvalues)
+        for key, kvalues in groupby(stdin_strip, self._get_kv(0)):
+            values = imap(self._get_kv(1), kvalues)
+            self._reduce(key, values)
         self._cleanup()
 
     def _setup(self):
         return
 
     def _reduce(self, key, kvalues):
+        print key
         for kv in kvalues:
             print kv
 

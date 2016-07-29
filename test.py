@@ -1,14 +1,16 @@
 #!/usr/bin/env python
 
 import sys
-import pymr
+from pymr import Mapper, Reducer
 
 
-class MyMapper(pymr.Mapper):
+class MyMapper(Mapper):
     pass
 
-class MyReducer(pymr.Reducer):
+class MyReducer(Reducer):
     def __init__(self):
+        Reducer.__init__(self)
+        self.key_fields = 2
         self.all_cnt = 0
         self.uin = {}
 
@@ -16,11 +18,10 @@ class MyReducer(pymr.Reducer):
         print key
         print key_cnt
 
-    def _reduce(self, key, kvalues):
+    def _reduce(self, key, values):
         # @override
         key_cnt = 0
-        for kv in kvalues:
-            n, value = kv.split('\t')
+        for value in values:
             key_cnt += 1
             self.all_cnt += 1
         self.flush(key, key_cnt)
