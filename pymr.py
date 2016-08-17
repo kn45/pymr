@@ -35,6 +35,7 @@ class Reducer(object):
     _setup(self)
     _reduce(self, key, values)
     _cleanup(self)
+    self.delim
     self.key_fields
     """
     def __init__(self):
