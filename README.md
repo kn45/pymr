@@ -8,7 +8,7 @@ Never bother with input, group by key, which have been handled by Pymr. Just ove
 _setup(self), _map(self, inl), _cleanup(self)
 - Reducer:  
 _setup(self), _reduce(self, key, values), _cleanup(self)  
-self.key_fields
+self.delim, self.key_fields
 
 ## Example
 `cat test_in | python test.py m | sort | python test.py r`
