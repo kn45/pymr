@@ -1,3 +1,4 @@
+# https://github.com/kn45/Pymr
 import sys
 from operator import itemgetter
 from itertools import imap, groupby
@@ -6,9 +7,9 @@ from abc import ABCMeta
 
 class Mapper(object):
     """override in subclass:
-    _setup
-    _map
-    _cleanup
+    _setup(self)
+    _map(self, inl)
+    _cleanup(self)
     """
     def __init__(self):
         return
@@ -31,9 +32,10 @@ class Mapper(object):
 
 class Reducer(object):
     """override in subclass:
-    _setup
-    _map
-    _cleanup
+    _setup(self)
+    _reduce(self, key, values)
+    _cleanup(self)
+    self.key_fields
     """
     def __init__(self):
         self.delim = '\t'
