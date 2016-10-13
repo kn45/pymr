@@ -1,8 +1,8 @@
-# https://github.com/kn45/Pymr
+# https://github.com/kn45/PyMR
 import sys
-from operator import itemgetter
-from itertools import imap, groupby
 from abc import ABCMeta
+from itertools import imap, groupby
+from operator import itemgetter
 
 
 class Mapper(object):
