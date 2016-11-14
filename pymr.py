@@ -60,10 +60,10 @@ class Reducer(object):
     def _setup(self):
         return
 
-    def _reduce(self, key, kvalues):
+    def _reduce(self, key, values):
         print key
-        for kv in kvalues:
-            print kv
+        for value in values:
+            print value
 
     def _cleanup(self):
         return
