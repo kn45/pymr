@@ -45,7 +45,7 @@ class Reducer(object):
     def _get_kv(self, tar):
         def __get_kv(inl):
             """generate key-value pair
-            tar=0, return key; tar=1 return value"""
+            tar=0, return key; tar=1, return value"""
             fields = inl.split(self.delim)
             return (self.delim.join(fields[:self.key_fields]),
                     self.delim.join(fields[self.key_fields:]))[tar]
