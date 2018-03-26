@@ -70,5 +70,6 @@ class Reducer(object):
     def _cleanup(self):
         return
 
+
 if __name__ == '__main__':
     Reducer().run()

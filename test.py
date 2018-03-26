@@ -7,6 +7,7 @@ from pymr import Mapper, Reducer
 class MyMapper(Mapper):
     pass
 
+
 class MyReducer(Reducer):
     def __init__(self):
         Reducer.__init__(self)
@@ -29,6 +30,7 @@ class MyReducer(Reducer):
     def _cleanup(self):
         # @override
         print self.all_cnt
+
 
 if __name__ == '__main__':
     if sys.argv[1] == 'm':
