@@ -1,5 +1,5 @@
 # PyMR
-PyMR is a small python wrapper for map-reduce programming in hadoop streaming mode. It imitates many operations as Java MR framework. One can simply override map() or reduce() method to make code running in streaming mode.  
+PyMR is a small python wrapper for map-reduce programming in hadoop streaming mode. It emulates many operations as Java MR framework. One can simply override map() or reduce() method to make code running in streaming mode.  
 https://github.com/kn45/PyMR
 
 ## Features
