@@ -72,4 +72,5 @@ class Reducer(object):
 
 
 if __name__ == '__main__':
-    Reducer().run()
+    Mapper().run()
+    # Reducer().run()

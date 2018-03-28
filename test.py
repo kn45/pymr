@@ -29,7 +29,7 @@ class MyReducer(Reducer):
 
     def _cleanup(self):
         # @override
-        print self.all_cnt
+        print 'cleanup', self.all_cnt
 
 
 if __name__ == '__main__':
