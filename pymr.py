@@ -2,7 +2,8 @@
 from __future__ import print_function
 import sys
 from abc import ABCMeta
-from itertools import imap, groupby
+from builtins import map
+from itertools import groupby
 from operator import itemgetter
 
 
@@ -54,9 +55,9 @@ class Reducer(object):
 
     def run(self):
         self._setup()
-        stdin_strip = imap(lambda l: l.rstrip('\r\n'), sys.stdin)
+        stdin_strip = map(lambda l: l.rstrip('\r\n'), sys.stdin)
         for key, kvalues in groupby(stdin_strip, self._get_kv(0)):
-            values = imap(self._get_kv(1), kvalues)
+            values = map(self._get_kv(1), kvalues)
             self._reduce(key, values)
         self._cleanup()
 
