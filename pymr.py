@@ -1,4 +1,5 @@
 # https://github.com/kn45/PyMR
+from __future__ import print_function
 import sys
 from abc import ABCMeta
 from itertools import imap, groupby
@@ -18,7 +19,7 @@ class Mapper(object):
         return
 
     def _map(self, inl):
-        print inl
+        print(inl)
 
     def _cleanup(self):
         return
@@ -63,9 +64,9 @@ class Reducer(object):
         return
 
     def _reduce(self, key, values):
-        print key
+        print(key)
         for value in values:
-            print value
+            print(value)
 
     def _cleanup(self):
         return
